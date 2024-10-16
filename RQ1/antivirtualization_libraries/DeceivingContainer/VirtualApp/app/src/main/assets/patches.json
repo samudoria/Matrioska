@@ -1,0 +1,5 @@
+{
+  "patches": [
+    { "file":  "patch.dex", "class":  "dev.sime1.patch.Patch" },
+  ]
+}

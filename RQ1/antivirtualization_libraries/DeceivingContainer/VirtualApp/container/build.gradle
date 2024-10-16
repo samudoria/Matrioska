@@ -1,0 +1,94 @@
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'dev.sime1.container'
+    compileSdkVersion 32
+
+    defaultConfig {
+        applicationId "dev.sime1.container.com.tinder"
+        minSdkVersion 21
+        buildConfigField 'String', 'GUEST_ID', '"com.tinder"'
+        targetSdkVersion 26
+        versionCode 180080814
+        versionName "2.2.3"
+        multiDexEnabled false
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField 'String', 'PACKAGE_NAME_ARM64', '"' + rootProject.ext.PACKAGE_NAME_ARM64 + '"'
+        manifestPlaceholders = [
+                PACKAGE_NAME_32BIT: rootProject.ext.PACKAGE_NAME_32BIT,
+                PACKAGE_NAME_ARM64: rootProject.ext.PACKAGE_NAME_ARM64,
+                APP_LABEL: "com.tinder - Container"
+        ]
+        ndk {
+            abiFilters "arm64-v8a"//"armeabi-v7a"//,
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable false
+            minifyEnabled false
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'virtualapp-proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'virtualapp-proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    packagingOptions {
+        pickFirst '**/libbytehook.so'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: '../app/libs')
+    implementation project(':containerlib')
+    implementation 'com.swift.sandhook:hooklib:4.2.0'
+    implementation 'com.swift.sandhook:nativehook:4.2.0'
+    implementation 'com.swift.sandhook:xposedcompat:4.2.0'
+    //Android Lib
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //Lifecycles, LiveData, and ViewModel
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+    //Room
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    //Promise Support
+    implementation 'org.jdeferred:jdeferred-android-aar:1.2.4'
+    // ThirdParty
+    implementation 'com.jonathanfinerty.once:once:1.0.3'
+    //implementation 'com.xdja.safekeyservice:xdjacrypto:1.0.3'
+    //implementation 'com.xdja.safekeyservice:jar_multi_jniapi:3.9.50'
+    //implementation 'com.xdja.safekeyservice:jar_multi_unitepin:3.9.24'
+    implementation files('../app/libs/securitysdk-v2--standard-4.0.12.2477.jar')
+    implementation 'com.google.code.gson:gson:2.6.2'
+}

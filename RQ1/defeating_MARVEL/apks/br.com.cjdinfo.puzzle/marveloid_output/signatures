@@ -1,0 +1,5 @@
+{"newClassName":"Ad1a1d1cb7d4449769695f42956109596f17e13345f874f669932e292a9b21e5d","bytecodeSignature":"br.com.cjdinfo.puzzle.ConfiguracaoActivity: selChkSom(Landroid/view/View;)V","folder":"ef5db3b2421f4c57a6fd003a21afd404"}
+{"newClassName":"A860bccafaa7c4d4fbb6463463d68009f1bd177ea1d8e4c87be5bf29c510a3192","bytecodeSignature":"br.com.cjdinfo.puzzle.BuscaMensagens$1: onClick(Landroid/content/DialogInterface;I)V","folder":"0570f16eb239401090e857fd9c7c9e4a"}
+{"newClassName":"A8fa1a7708bf947daaa2017780284231117728b3bda3849d48603ea74b977b7a1","bytecodeSignature":"br.com.cjdinfo.puzzle.AdsMob: showIntersticial()V","folder":"35ceb4233cfa4284bda4a374efbbc1bc"}
+{"newClassName":"A6843a0743bb3441cb0614bb27d9b633eea9c9d1582464266b43dfd34ee325553","bytecodeSignature":"br.com.cjdinfo.puzzle.SobreActivity: goCJDinfo(Landroid/view/View;)V","folder":"a953d0d789c043478260ab8dd9f7c9e3"}
+{"newClassName":"A9fc8d9dd0cda4411bd6a1e8f9be33ac83094565266ae4db3a3afe7741efc2c28","bytecodeSignature":"br.com.cjdinfo.puzzle.MainActivity: swapItem(II)V","folder":"c96f2ca3d90840cba25755880daedd27"}
